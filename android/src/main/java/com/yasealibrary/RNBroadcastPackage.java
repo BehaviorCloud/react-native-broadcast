@@ -1,9 +1,6 @@
 
-package com.reactlibrary;
+package com.yasealibrary;
 
-import android.app.Activity;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -29,4 +26,5 @@ public class RNBroadcastPackage implements ReactPackage {
         );
     }
 }
+
 
