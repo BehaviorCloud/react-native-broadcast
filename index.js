@@ -9,15 +9,13 @@ class BroadcastView extends React.Component {
 
 BroadcastView.propTypes = {
   /**
-   * cameraPosition: 'front' or 'back'
    * publish: If an rtmpURL is provided, will start publishing.
               If empty string provided, will stop publishing.
    */
   ...View.propTypes,
-  cameraPosition: React.PropTypes.string,
   publish: React.PropTypes.string
 }
 
-var RNBroadcastView = requireNativeComponent('RNBroadcastView', BroadcastView)
+var RNBroadcastView = requireNativeComponent('RNYaseaBroadcastView', BroadcastView)
 
 module.exports = BroadcastView
