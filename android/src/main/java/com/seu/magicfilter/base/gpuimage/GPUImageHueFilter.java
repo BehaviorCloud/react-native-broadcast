@@ -20,7 +20,7 @@ import android.opengl.GLES20;
 
 import com.seu.magicfilter.utils.MagicFilterType;
 
-import com.reactlibrary.R;
+import com.yasealibrary.R;
 
 public class GPUImageHueFilter extends GPUImageFilter {
 

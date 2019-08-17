@@ -20,7 +20,7 @@ import android.opengl.GLES20;
 
 import com.seu.magicfilter.utils.MagicFilterType;
 
-import com.reactlibrary.R;
+import com.yasealibrary.R;
 
 /**
  * Changes the contrast of the image.<br>

@@ -20,7 +20,7 @@ import android.opengl.GLES20;
 
 import com.seu.magicfilter.utils.MagicFilterType;
 
-import com.reactlibrary.R;
+import com.yasealibrary.R;
 
 /**
  * saturation: The degree of saturation or desaturation to apply to the image (0.0 - 2.0, with 1.0 as the default)

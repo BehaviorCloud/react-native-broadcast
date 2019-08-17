@@ -26,7 +26,7 @@ import com.seu.magicfilter.utils.OpenGLUtils;
 import com.seu.magicfilter.utils.Rotation;
 import com.seu.magicfilter.utils.TextureRotationUtil;
 
-import com.reactlibrary.R;
+import com.yasealibrary.R;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

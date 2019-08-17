@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import android.opengl.GLES20;
 
 import com.seu.magicfilter.utils.MagicFilterType;
-import com.reactlibrary.R;
+import com.yasealibrary.R;
 
 import com.seu.magicfilter.base.gpuimage.GPUImageFilter;
 
