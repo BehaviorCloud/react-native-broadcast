@@ -24,6 +24,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -46,6 +47,7 @@ public class RNBroadcastViewManager extends SimpleViewManager<SrsCameraView> imp
         SrsRecordHandler.SrsRecordListener, SrsEncodeHandler.SrsEncodeListener {
 
   public static final String REACT_CLASS = "RNYaseaBroadcastView";
+  public static final int COMMAND_STOP_PUBLISH = 1;
   private SrsCameraView mCameraView;
   private SrsPublisher mPublisher;
   private ThemedReactContext mContext = null;
@@ -97,6 +99,37 @@ public class RNBroadcastViewManager extends SimpleViewManager<SrsCameraView> imp
       am.setSpeakerphoneOn(true);
       am.setMode(AudioManager.MODE_NORMAL);
       this.mPublisher.stopPublish();
+    }
+  }
+
+  @Override
+  public Map<String,Integer> getCommandsMap() {
+    return MapBuilder.of(
+            "stopPublish",
+            COMMAND_STOP_PUBLISH);
+  }
+
+  @Override
+  public void receiveCommand(
+          SrsCameraView view,
+          int commandType,
+          @Nullable ReadableArray args) {
+    Assertions.assertNotNull(view);
+    Assertions.assertNotNull(args);
+    switch (commandType) {
+      case COMMAND_STOP_PUBLISH: {
+        AudioManager am = (AudioManager) this.mContext.getSystemService(Context.AUDIO_SERVICE);
+        am.setSpeakerphoneOn(true);
+        am.setMode(AudioManager.MODE_NORMAL);
+        this.mPublisher.stopPublish();
+        return;
+      }
+
+      default:
+        throw new IllegalArgumentException(String.format(
+                "Unsupported command %d received by %s.",
+                commandType,
+                getClass().getSimpleName()));
     }
   }
 
