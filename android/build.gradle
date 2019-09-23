@@ -28,8 +28,10 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
+    implementation 'com.github.pedroSG94.rtmp-rtsp-stream-client-java:rtplibrary:1.6.7'
 }

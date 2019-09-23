@@ -7,6 +7,6 @@ class BroadcastView extends React.Component {
   }
 }
 
-var RNBroadcastView = requireNativeComponent('RNYaseaBroadcastView', BroadcastView)
+var RNBroadcastView = requireNativeComponent('RNPedroBroadcastView', BroadcastView)
 
 module.exports = BroadcastView
