@@ -21,12 +21,7 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-//import com.github.faucamp.simplertmp.RtmpHandler;
-//
-//import net.ossrs.yasea.SrsCameraView;
-//import net.ossrs.yasea.SrsEncodeHandler;
-//import net.ossrs.yasea.SrsPublisher;
-//import net.ossrs.yasea.SrsRecordHandler;
+
 import com.pedro.encoder.input.video.CameraOpenException;
 import com.pedro.rtplibrary.rtmp.RtmpCamera2;
 import net.ossrs.rtmp.ConnectCheckerRtmp;
@@ -40,8 +35,6 @@ public class RNBroadcastViewManager extends SimpleViewManager<SurfaceView> imple
 
   public static final String REACT_CLASS = "RNPedroBroadcastView";
   public static final int COMMAND_STOP_PUBLISH = 1;
-//  private SrsCameraView mCameraView;
-//  private SrsPublisher mPublisher;
   private SurfaceView mCameraView;
   private RtmpCamera2 rtmpCamera2;
   private ThemedReactContext mContext = null;
@@ -116,7 +109,7 @@ public class RNBroadcastViewManager extends SimpleViewManager<SurfaceView> imple
 
   @Override
   public void receiveCommand(
-          SrsCameraView view,
+          SurfaceView view,
           int commandType,
           @Nullable ReadableArray args) {
     Assertions.assertNotNull(view);
@@ -126,7 +119,7 @@ public class RNBroadcastViewManager extends SimpleViewManager<SurfaceView> imple
         AudioManager am = (AudioManager) this.mContext.getSystemService(Context.AUDIO_SERVICE);
         am.setSpeakerphoneOn(true);
         am.setMode(AudioManager.MODE_NORMAL);
-        this.mPublisher.stopPublish();
+        this.stopStreaming();
         return;
       }
 
