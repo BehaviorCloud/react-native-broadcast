@@ -5,7 +5,6 @@ import java.util.Map;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.FrameLayout;
 
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReadableArray;
@@ -38,8 +37,8 @@ public class RNBroadcastViewManager extends SimpleViewManager<RNBroadcastView> {
   }
 
   @ReactProp(name = "publish")
-  public void started(FrameLayout view, @Nullable String publish) {
-    System.out.println("Starting: " + publish + "live: " + this.isLive);
+  public void started(RNBroadcastView view, @Nullable String publish) {
+    System.out.println("Starting: " + publish);
 
     mBroadcastView.setPublish(publish);
   }
@@ -53,7 +52,7 @@ public class RNBroadcastViewManager extends SimpleViewManager<RNBroadcastView> {
 
   @Override
   public void receiveCommand(
-          FrameLayout view,
+          RNBroadcastView view,
           int commandType,
           @Nullable ReadableArray args) {
     Assertions.assertNotNull(view);

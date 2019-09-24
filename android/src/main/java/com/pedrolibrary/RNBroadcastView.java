@@ -30,12 +30,10 @@ public class RNBroadcastView extends FrameLayout implements
     public RNBroadcastView(@NonNull ThemedReactContext context) {
         super(context);
         // context.addLifecycleEventListener(this);
+        mContext = context;
 
         mCameraView = new SurfaceView(context);
         mCameraView.getHolder().addCallback(this);
-//        mCameraView.setVisibility(View.VISIBLE);
-//        mCameraView.setFullscreen(false, false);
-//        mCameraView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         addView(mCameraView);
 
