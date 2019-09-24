@@ -14,7 +14,7 @@
 @end
 
 @implementation RNBroadcastViewManager
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNBroadcastView)
 
 - (UIView *)view
 {

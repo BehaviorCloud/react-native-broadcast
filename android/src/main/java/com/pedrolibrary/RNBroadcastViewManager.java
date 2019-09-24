@@ -18,7 +18,7 @@ import static com.facebook.react.common.ReactConstants.TAG;
 
 public class RNBroadcastViewManager extends SimpleViewManager<RNBroadcastView> {
 
-  public static final String REACT_CLASS = "RNPedroBroadcastView";
+  public static final String REACT_CLASS = "RNBroadcastView";
   public static final int COMMAND_STOP_PUBLISH = 1;
   private RNBroadcastView mBroadcastView = null;
 

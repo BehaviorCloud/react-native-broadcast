@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-broadcast",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "RTMP Broadcaster library for React Native",
   "main": "index.js",
   "scripts": {

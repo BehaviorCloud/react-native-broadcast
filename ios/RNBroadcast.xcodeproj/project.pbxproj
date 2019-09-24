@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AEF1C1D233A8A4C00E57B41 /* RNBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF1C1C233A8A4C00E57B41 /* RNBroadcast.m */; };
 		4B00137B1E92A69900FE1DD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B00137A1E92A69900FE1DD6 /* UIKit.framework */; };
 		4B00137D1E92A69F00FE1DD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B00137C1E92A69F00FE1DD6 /* Foundation.framework */; };
 		4B00137F1E92A6A800FE1DD6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B00137E1E92A6A800FE1DD6 /* AVFoundation.framework */; };
@@ -215,7 +216,6 @@
 		4BC760361E92CA67000373DA /* LFLivePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC760301E92CA67000373DA /* LFLivePreview.m */; };
 		4BC760371E92CA67000373DA /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC760331E92CA67000373DA /* UIControl+YYAdd.m */; };
 		4BC760381E92CA67000373DA /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC760351E92CA67000373DA /* UIView+YYAdd.m */; };
-		B3E7B58A1CC2AC0600A0062D /* RNBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNBroadcast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -232,6 +232,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNBroadcast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNBroadcast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEF1C1C233A8A4C00E57B41 /* RNBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNBroadcast.m; sourceTree = "<group>"; };
 		4B00137A1E92A69900FE1DD6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B00137C1E92A69F00FE1DD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4B00137E1E92A6A800FE1DD6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -662,7 +663,6 @@
 		4BC760331E92CA67000373DA /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		4BC760341E92CA67000373DA /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
 		4BC760351E92CA67000373DA /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* RNBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNBroadcast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,6 +687,19 @@
 				134814201AA4EA6300B7C361 /* libRNBroadcast.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3AEF1C1B233A89D300E57B41 /* RNBroadcast */ = {
+			isa = PBXGroup;
+			children = (
+				4B90FEA51E92E0BD00B96D9B /* images */,
+				4BC760311E92CA67000373DA /* category */,
+				4BC75DC01E92CA28000373DA /* LFLiveKit */,
+				3AEF1C1C233A8A4C00E57B41 /* RNBroadcast.m */,
+				4BC760301E92CA67000373DA /* LFLivePreview.m */,
+				4BC7602F1E92CA67000373DA /* LFLivePreview.h */,
+			);
+			path = RNBroadcast;
 			sourceTree = "<group>";
 		};
 		4B0013791E92A69800FE1DD6 /* Frameworks */ = {
@@ -1244,12 +1257,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5891CC2AC0600A0062D /* RNBroadcast.m */,
-				4BC7602F1E92CA67000373DA /* LFLivePreview.h */,
-				4BC760301E92CA67000373DA /* LFLivePreview.m */,
-				4B90FEA51E92E0BD00B96D9B /* images */,
-				4BC760311E92CA67000373DA /* category */,
-				4BC75DC01E92CA28000373DA /* LFLiveKit */,
+				3AEF1C1B233A89D300E57B41 /* RNBroadcast */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				4B0013791E92A69800FE1DD6 /* Frameworks */,
 			);
@@ -1294,6 +1302,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -1333,7 +1342,6 @@
 				4BC760071E92CA29000373DA /* GPUImageSourceOverBlendFilter.m in Sources */,
 				4BC75FDB1E92CA29000373DA /* GPUImageMotionBlurFilter.m in Sources */,
 				4BC75F761E92CA29000373DA /* LFFrame.m in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* RNBroadcast.m in Sources */,
 				4BC75F8B1E92CA29000373DA /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				4BC75F6D1E92CA29000373DA /* LFH264VideoEncoder.mm in Sources */,
 				4BC75F6C1E92CA29000373DA /* LFVideoEncoder.m in Sources */,
@@ -1357,6 +1365,7 @@
 				4BC75F7A1E92CA29000373DA /* LFStreamingBuffer.m in Sources */,
 				4BC760381E92CA67000373DA /* UIView+YYAdd.m in Sources */,
 				4BC75FB11E92CA29000373DA /* GPUImageGammaFilter.m in Sources */,
+				3AEF1C1D233A8A4C00E57B41 /* RNBroadcast.m in Sources */,
 				4BC760081E92CA29000373DA /* GPUImageSphereRefractionFilter.m in Sources */,
 				4BC75FF61E92CA29000373DA /* GPUImageRGBFilter.m in Sources */,
 				4BC75FBA1E92CA29000373DA /* GPUImageHazeFilter.m in Sources */,
