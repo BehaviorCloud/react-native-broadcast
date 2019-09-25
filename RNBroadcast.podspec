@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/BehaviorCloud/react-native-broadcast.git", :tag => "#{s.version}" }
-  s.source_files  = "ios/RNBroadcast/**/*.{c,h,m}"
+  s.source_files  = "ios/RNBroadcast/**/*.{c,h,m,mm}"
 
   s.dependency 'React'
 end
