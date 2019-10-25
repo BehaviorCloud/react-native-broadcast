@@ -33,5 +33,5 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    implementation 'com.github.pedroSG94.rtmp-rtsp-stream-client-java:rtplibrary:1.6.7'
+    implementation 'com.github.behaviorcloud.rtmp-rtsp-stream-client-java:rtplibrary:1.7.3'
 }

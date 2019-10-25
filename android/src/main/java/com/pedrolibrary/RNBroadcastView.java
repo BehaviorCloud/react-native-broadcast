@@ -6,13 +6,15 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import com.pedro.rtplibrary.view.OpenGlView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.pedro.encoder.input.video.CameraOpenException;
-import com.pedro.rtplibrary.rtmp.RtmpCamera2;
+import com.pedro.rtplibrary.rtmp.RtmpCamera1;
+import com.pedro.encoder.input.video.CameraHelper;
 import net.ossrs.rtmp.ConnectCheckerRtmp;
 
 import static com.facebook.react.common.ReactConstants.TAG;
@@ -20,9 +22,10 @@ import static com.facebook.react.common.ReactConstants.TAG;
 
 public class RNBroadcastView extends FrameLayout implements
         ConnectCheckerRtmp, SurfaceHolder.Callback {
-    private SurfaceView mCameraView;
+    // private SurfaceView mCameraView;
+    private OpenGlView mCameraView;
     private ThemedReactContext mContext = null;
-    private RtmpCamera2 rtmpCamera2;
+    private RtmpCamera1 rtmpCamera1;
     private Boolean isLive = false;
     private Boolean surfaceExists = false;
     private String streamUrl = "";
@@ -32,20 +35,22 @@ public class RNBroadcastView extends FrameLayout implements
         // context.addLifecycleEventListener(this);
         mContext = context;
 
-        mCameraView = new SurfaceView(context);
+        // mCameraView = new SurfaceView(context);
+        mCameraView = new OpenGlView(context);
+        mCameraView.setKeepAspectRatio(true);
         mCameraView.getHolder().addCallback(this);
 
         addView(mCameraView);
 
-        rtmpCamera2 = new RtmpCamera2(mCameraView, this);
-        rtmpCamera2.setReTries(10);
+        rtmpCamera1 = new RtmpCamera1(mCameraView, this);
+        rtmpCamera1.setReTries(10);
 
         Log.d(TAG, "About to return from RNBroadcastView");
     }
 
     private void handleException(Exception e) {
         try {
-            rtmpCamera2.stopStream();
+            rtmpCamera1.stopStream();
         } catch (Exception e1) {
             //
         }
@@ -76,9 +81,21 @@ public class RNBroadcastView extends FrameLayout implements
 
     public void startStreaming() {
         if (surfaceExists && !streamUrl.isEmpty()) {
-            if (rtmpCamera2.isRecording()
-                    || rtmpCamera2.prepareAudio() && rtmpCamera2.prepareVideo()) {
-                rtmpCamera2.startStream(streamUrl);
+            boolean hardwareRotation = true;
+            try {
+                rtmpCamera1.getGlInterface();
+            }
+            catch (Exception e) {
+                hardwareRotation = false;
+            }
+
+            int cameraOrientation = CameraHelper.getCameraOrientation(getContext()),
+                captureWidth = 640,
+                captureHeight = 480;
+
+            if (rtmpCamera1.isRecording()
+                    || rtmpCamera1.prepareAudio() && rtmpCamera1.prepareVideo(captureWidth, captureHeight, 30, 600*1024, hardwareRotation, 1, cameraOrientation)) {
+                rtmpCamera1.startStream(streamUrl);
                 isLive = true;
             } else {
 //      Toast.makeText(this, "Error preparing stream, This device cant do it",
@@ -89,7 +106,7 @@ public class RNBroadcastView extends FrameLayout implements
     }
 
     public void stopStreaming() {
-        rtmpCamera2.stopStream();
+        rtmpCamera1.stopStream();
         isLive = false;
     }
 
@@ -185,15 +202,17 @@ public class RNBroadcastView extends FrameLayout implements
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
         Log.d(TAG, "SurfaceChanged");
-        rtmpCamera2.startPreview();
+        rtmpCamera1.startPreview();
+        int cameraOrientation = CameraHelper.getCameraOrientation(getContext());
+        rtmpCamera1.setPreviewOrientation(cameraOrientation);
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         surfaceExists = false;
-        if (rtmpCamera2.isStreaming()) {
+        if (rtmpCamera1.isStreaming()) {
             stopStreaming();
         }
-        rtmpCamera2.stopPreview();
+        rtmpCamera1.stopPreview();
     }
 }
